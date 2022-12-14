@@ -1,0 +1,49 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+@import '../../../variables.scss';
+
+
+
+.nav{
+    padding-bottom: 0px;
+    background-color: black;
+    width: 100vw;
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+
+    .nav-logo{
+        @include center-element;
+        padding-left: 32px;
+        h3{
+            color: $text-color;
+            margin: 0;
+        }
+    }
+
+    .nav-links{
+        padding-right: 32px;
+        @include center-element;
+
+        vaading-button{
+            cursor: pointer;
+        }
+
+        vaadin-tabs{
+            vaadin-tab{
+                cursor: pointer;
+                padding: 1rem 1rem !important;
+            }
+        }
+    }
+
+}
+
+
+.content{
+    width: 100vw;
+    height: 80vh;
+    h1{
+        color: white;
+    }
+}

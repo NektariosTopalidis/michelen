@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import './colors.scss';
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    margin: 0 !important;
+    background-color: $primary-color;
+}
+html, body { height: 100%; }
+
+.mdc-text-field{
+    overflow: visible !important;
+    color: $text-color;
+}
+
+
+.mat-mdc-input-element{
+    color: white;
+}
+
+.mat-mdc-snack-bar-label{
+    color: white !important;
+}
+
+.mat-mdc-snack-bar-container {
+    // background-color: black;
+    // width: fit-content;
+}
+
+.mat-mdc-snack-bar-label{
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+vaadin-button{
+    cursor: pointer !important;
+    color: black;
+}
