@@ -32,7 +32,7 @@ export class ProductsService {
         qty:qty
     })
     console.log(req.data);
-   
+
     return req.data.product
     }else{
       console.log(code,qty);
@@ -69,12 +69,12 @@ export class ProductsService {
     console.log(this.loadedUser);
     console.log(product);
     console.log(qty);
+     // https://michelinNodeRest.vinoitalia.gr/products/addToCart
+    //http://localhost:3001/products/addToCart
     axios.post('https://michelinNodeRest.vinoitalia.gr/products/addToCart',{
-      mtrl : product.mtrl,
-      trdr : this.loadedUser.id,
-      qty :qty,
-      availability :product.response.available,
-      dates : product.response.delivery_dates.join(',')
+      qty:qty,
+      trdr:"5785",
+      product : product
     })
     .then(resData=>{
       this.loadingService.sendStartLoading(false);
