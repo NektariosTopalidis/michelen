@@ -13,7 +13,9 @@ import axios from 'axios';
   styleUrls: ['./cart-table.component.scss']
 })
 export class CartTableComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'price', 'avalability', 'order', 'group', 'brand', 'rim', 'season', 'update date', "thessaloniki's stock", "athens' stock", 'quantity', 'add to cart'];
+  products!: any[];
+
+  displayedColumns: string[] = ['name', 'price', 'qty', 'qpd' ,'availability', 'order' ,'group', 'brand', 'rim', 'season', 'update date', "thessaloniki's stock", "athens' stock",  'remove'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -21,7 +23,7 @@ export class CartTableComponent implements OnInit {
 
 
   loadedUser = JSON.parse(localStorage.getItem('userData')||'{}');
-  
+
   constructor() {}
 
   ngOnInit(): void {
@@ -30,6 +32,11 @@ export class CartTableComponent implements OnInit {
     })
     .then(resdata=>{
       console.log(resdata.data)
+      this.products = resdata.data.products;
+
+      this.dataSource = new MatTableDataSource(this.products);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
   }
 }
