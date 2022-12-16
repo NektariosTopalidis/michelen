@@ -3,6 +3,10 @@ import axios from 'axios';
 import { Subject } from 'rxjs';
 import { LoadingService } from './loading.service';
 
+//primeng
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -10,7 +14,7 @@ export class ProductsService {
   loadedUser = JSON.parse(localStorage.getItem('userData')||'{}');
   delivery_date_arr:any = [];
   available_dates:any = [];
-  constructor(private loadingService: LoadingService) { }
+  constructor(private loadingService: LoadingService,private messageService: MessageService,private primengConfig: PrimeNGConfig) { }
 
   findProductsEvent = new Subject<any>();
   castFindProductsEvent = this.findProductsEvent.asObservable();
@@ -73,10 +77,11 @@ export class ProductsService {
     //http://localhost:3001/products/addToCart
     axios.post('https://michelinNodeRest.vinoitalia.gr/products/addToCart',{
       qty:qty,
-      trdr:"5785",
+      trdr:this.loadedUser.id,
       product : product
     })
     .then(resData=>{
+      this.messageService.add({severity:'success', summary:'The product has been added to the cart successfuly'});
       this.loadingService.sendStartLoading(false);
       console.log(resData.data)
     })

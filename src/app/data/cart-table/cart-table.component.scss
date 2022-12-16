@@ -2,11 +2,21 @@
 @import '../../../mixins.scss';
 @import '../../../variables.scss';
 
+.danger{
+    background: red;
+}
+
 .content{
     @include center-element;
     @include col;
     margin-top: 60px;
     width: 96vw;
+
+    .order{
+        width: 100%;
+        background-color: white;
+        padding: 12px;
+    }
 
     table {
         width: 100%;
