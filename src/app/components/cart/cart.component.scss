@@ -1,0 +1,24 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+@import '../../../variables.scss';
+
+
+.content{
+    @include component-size;
+    @include  col;
+
+    .cart-title{
+        @include center-element;
+        @include col;
+
+        margin-bottom: 72px;
+
+        .cart-title-text{
+            margin: 0;
+        }
+    }
+
+    .cart-table{
+        width: fit-content;
+    }
+}

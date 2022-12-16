@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 //Serivces
 import { AuthService } from 'src/app/services/auth.service';
@@ -22,11 +22,18 @@ import '@vaadin/button';
 export class NavbarComponent implements OnInit{
   loadedUser:any = JSON.parse(localStorage.getItem('userData')||'{}');
 
+  //badge
+  cartItemsAmount: number = 2;
+
+  //tab select
+  tabSelect: number = 1;
+  @Input() selectedTab!: number;
+
   constructor(private authService:AuthService) {}
 
   ngOnInit(): void {
     console.log(this.loadedUser);
-    
+    this.tabSelect = this.selectedTab;
 
   }
 

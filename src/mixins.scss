@@ -3,3 +3,19 @@
     justify-content: center;
     align-items: center;
 }
+
+@mixin col {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin component-size {
+    width: 100vw;
+    height: calc(100vh - 6vh); // meion to navbar
+    padding: 32px;
+}

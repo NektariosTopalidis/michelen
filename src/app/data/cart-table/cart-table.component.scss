@@ -1,0 +1,27 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+@import '../../../variables.scss';
+
+.content{
+    @include center-element;
+    @include col;
+    margin-top: 60px;
+    width: 96vw;
+
+    table {
+        width: 100%;
+        background-color: white;
+    }
+      
+    .mat-mdc-form-field {
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    td, th {
+        // width: 25%;
+        color: black;
+    }
+
+
+}

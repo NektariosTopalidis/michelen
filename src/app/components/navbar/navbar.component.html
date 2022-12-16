@@ -3,27 +3,24 @@
         <h3>Logo</h3>
     </div>
 
-    <div class="nav-links">
-        <vaadin-tabs orientation="horizontal">
-          <vaadin-tab>
-            <vaadin-icon icon="vaadin:user"></vaadin-icon>
-            <span>Profile</span>
+    <div class="nav-links"> 
+        <vaadin-tabs orientation="horizontal" [selected]="tabSelect">
+          <vaadin-tab routerLink="/products">
+            <vaadin-icon icon="vaadin:list-ul"></vaadin-icon>
+            <span>Products</span>
           </vaadin-tab>
-          <vaadin-tab>
-            <vaadin-icon icon="vaadin:cog"></vaadin-icon>
-            <span>Settings</span>
+          <vaadin-tab routerLink="/cart">
+            <vaadin-icon icon="vaadin:cart"></vaadin-icon>
+            <span>Cart</span>
           </vaadin-tab>
-          <vaadin-tab>
-            <vaadin-icon icon="vaadin:bell"></vaadin-icon>
-            <span>Notifications</span>
+          <vaadin-tab  routerLink="/dashboard" *ngIf="loadedUser.isAdmin">
+            <vaadin-icon icon="vaadin:dashboard"></vaadin-icon>
+            <span>Dashboard</span>
           </vaadin-tab>
         </vaadin-tabs>
 
-        <vaadin-button (click)="logout()" theme="primary">Logout</vaadin-button>
+        <vaadin-button  (click)="logout()" theme="primary">Logout</vaadin-button>
     </div>
   </div>
 
-  <div class="content">
-    <h1>HELLO</h1>
-  </div>
   

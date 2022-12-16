@@ -23,6 +23,7 @@ export interface AuthResponseData{
 //vaadin
 //---> Button
 import '@vaadin/button';
+import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ import '@vaadin/button';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup | any;
   error!: string;
-  constructor(private fb: FormBuilder,private authService: AuthService,private router: Router) {}
+  constructor(private fb: FormBuilder,private authService: AuthService,private router: Router,private loadingService: LoadingService) {}
 
   ngOnInit(): void{
     this.loginForm = this.fb.group({
@@ -43,23 +44,24 @@ export class LoginComponent implements OnInit {
     this.authService.error.subscribe(resData => {
       console.log(resData.error.message);
       this.error = resData.error.message;
+      this.loadingService.sendStartLoading(false);
     })
   }
 
   login(){
-    console.log('HEY');
+    this.loadingService.sendStartLoading(true);
     
     console.log(this.loginForm.value);
     let authObs:Observable<AuthResponseData>;
     authObs = this.authService.login(this.loginForm.value.username,this.loginForm.value.password);
     authObs.subscribe((resData: any)=>{
       console.log(resData);
-      axios.post('https:///michelinApi.vinoitalia.gr/products/updateStock.php',{
+      axios.post('https://michelinNodeRest.vinoitalia.gr/products/updateStock',{
         method:"STOCKUPDATE"
       }).then(resData=>{
         
         console.log(resData.data);
-        this.router.navigate(['home']);
+        this.router.navigate(['products']);
       })
       
       

@@ -1,0 +1,43 @@
+@import '../../../colors.scss';
+@import '../../../mixins.scss';
+@import '../../../variables.scss';
+
+
+.content{
+    @include component-size;
+    @include  col;
+
+    .products-title{
+        @include center-element;
+        @include col;
+
+        margin-bottom: 72px;
+
+        .products-title-text{
+            margin: 0;
+        }
+    }
+
+    .products-table{
+        width: fit-content;
+    }
+
+    .products-form{
+        display: flex;
+        
+        @include col;
+
+        .products-form-field{
+            width: 30%;
+        }   
+
+        .products-form-input{
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .products-form-submit{
+            margin-top: 24px;
+        }
+    }
+}

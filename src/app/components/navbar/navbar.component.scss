@@ -3,10 +3,9 @@
 @import '../../../variables.scss';
 
 
-
 .nav{
     padding-bottom: 0px;
-    background-color: black;
+    background-color: rgb(255, 255, 255);
     width: 100vw;
     height: 6vh;
     display: flex;
@@ -40,10 +39,4 @@
 }
 
 
-.content{
-    width: 100vw;
-    height: 80vh;
-    h1{
-        color: white;
-    }
-}
+

@@ -22,7 +22,7 @@ export class AdminAuthGuard implements CanActivate {
         }
         else{
 
-          return this.router.createUrlTree(['home']);
+          return this.router.createUrlTree(['products']);
         }
 
       }),

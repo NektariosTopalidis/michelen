@@ -1,5 +1,8 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import en from '@angular/common/locales/en';
+registerLocaleData(en);
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,19 +13,47 @@ import {HttpClientModule} from '@angular/common/http';
 //Components
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
+import { LoginCompletedComponent } from './snacks/login-completed/login-completed.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductsTableComponent } from './data/products-table/products-table.component';
 
 //Material
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { LoginCompletedComponent } from './snacks/login-completed/login-completed.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CartComponent } from './components/cart/cart.component';
+import { UpdateProductsComponent } from './components/dashboard/update-products/update-products.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
+//PrimeNg
+import {ToastModule} from 'primeng/toast';
+import {RippleModule} from 'primeng/ripple';
+import {MessageService} from 'primeng/api';
+import { PrimeNGConfig } from 'primeng/api';
+
+//ng-zorro
+import { NZ_I18N } from 'ng-zorro-antd/i18n';
+import { en_US } from 'ng-zorro-antd/i18n';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { CartTableComponent } from './data/cart-table/cart-table.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    LoginCompletedComponent
+    LoginCompletedComponent,
+    ProductsComponent,
+    DashboardComponent,
+    CartComponent,
+    UpdateProductsComponent,
+    ProductsTableComponent,
+    SpinnerComponent,
+    CartTableComponent
   ],
   imports: [
     BrowserModule,
@@ -33,10 +64,20 @@ import { LoginCompletedComponent } from './snacks/login-completed/login-complete
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatBadgeModule,
+    MatIconModule,
+    MatTableModule,
+    MatPaginatorModule,
+    ToastModule,
+    RippleModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  providers: [],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    MessageService,
+    PrimeNGConfig
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

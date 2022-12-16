@@ -11,7 +11,7 @@
     @include center-element;
     
     .login{
-        background-color: black;
+        background-color: white;
         width: fit-content;
         
         .login-header{
@@ -19,7 +19,7 @@
             background-color: $text-color;
             
             h2{
-                color: black;
+                color: white;
             }
         }
 
@@ -46,6 +46,7 @@
 
             .buttons{
                 width: 70%;
+                margin-top: 24px;
                 margin-bottom: 24px;
                 vaadin-button{
                     width: 100%;
