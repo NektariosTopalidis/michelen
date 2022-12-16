@@ -1,30 +1,29 @@
-<div class="content">
+<!-- <div class="content">
     <div class="mat-elevation-z8">
         <table mat-table [dataSource]="dataSource" matSort>
-      
-          <!-- ID Column -->
+
           <ng-container matColumnDef="name">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
             <td mat-cell *matCellDef="let row"> {{row.name}} </td>
           </ng-container>
-      
-          <!-- Progress Column -->
+
+
           <ng-container matColumnDef="price">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Price </th>
             <td mat-cell *matCellDef="let row"> {{row.price}} </td>
           </ng-container>
-      
-          <!-- Name Column -->
+
+
           <ng-container matColumnDef="avalability">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Avalability </th>
             <td mat-cell *matCellDef="let row"> {{ !row.response? '-' : row.response.availability[0].available }} </td>
           </ng-container>
-      
-          <!-- Fruit Column -->
+
+
           <ng-container matColumnDef="order">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Order </th>
-            <td mat-cell *matCellDef="let row"> 
-                <vaadin-button *ngIf="!row.response" (click)="selectProd(row.cai)" theme="primary">Select</vaadin-button> 
+            <td mat-cell *matCellDef="let row">
+                <vaadin-button *ngIf="!row.response" (click)="selectProd(row.cai)" theme="primary">Select</vaadin-button>
                 <div *ngIf="row.response">
                   <span *ngFor="let delivery_date of row.response.delivery_dates;let i = index">
                     {{(i == row.response.delivery_dates.length - 1)? delivery_date.delivery_dates + ' | ' + delivery_date.quantity_value : delivery_date.delivery_dates + ' | ' + delivery_date.quantity_value + ' , '}}
@@ -42,12 +41,12 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
             <td mat-cell *matCellDef="let row"> {{row.marka}} </td>
           </ng-container>
-      
+
           <ng-container matColumnDef="rim">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Rim </th>
             <td mat-cell *matCellDef="let row"> {{row.zanta}} </td>
           </ng-container>
-          
+
           <ng-container matColumnDef="season">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Season </th>
             <td mat-cell *matCellDef="let row"> {{row.epoxi}} </td>
@@ -70,11 +69,11 @@
 
           <ng-container matColumnDef="quantity">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity</th>
-            <td mat-cell *matCellDef="let row"> 
+            <td mat-cell *matCellDef="let row">
                 <div class="qty" [attr.id]="'qty' + row.cai">
                     <mat-form-field appearance="outline">
                         <input matInput (change)="handleNewQty($event,('qty' + row.cai))" (keyup)="handleNewQty($event,('qty' + row.cai))" type="number"  min="1" autocomplete="off" [disabled]="!row.response">
-                    </mat-form-field>    
+                    </mat-form-field>
                 </div>
             </td>
           </ng-container>
@@ -82,19 +81,16 @@
           <ng-container matColumnDef="add to cart">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Add To Cart </th>
             <td mat-cell *matCellDef="let row">
-                <vaadin-button (click)="addToCart(row,('qty' + row.cai))" [disabled]="!row.response" theme="primary">Add</vaadin-button> 
+                <vaadin-button (click)="addToCart(row,('qty' + row.cai))" [disabled]="!row.response" theme="primary">Add</vaadin-button>
             </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      
-          <!-- Row shown when there is no matching data. -->
-          <!-- <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
-          </tr> -->
+
+
         </table>
-      
+
         <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of products"></mat-paginator>
     </div>
-</div>
+</div> -->
