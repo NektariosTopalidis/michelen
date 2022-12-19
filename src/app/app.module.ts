@@ -34,12 +34,17 @@ import {ToastModule} from 'primeng/toast';
 import {RippleModule} from 'primeng/ripple';
 import {MessageService} from 'primeng/api';
 import { PrimeNGConfig } from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ConfirmationService} from 'primeng/api';
 
 //ng-zorro
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { CartTableComponent } from './data/cart-table/cart-table.component';
+
+//FontAwsome
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -70,13 +75,16 @@ import { CartTableComponent } from './data/cart-table/cart-table.component';
     MatTableModule,
     MatPaginatorModule,
     ToastModule,
-    RippleModule
+    RippleModule,
+    ConfirmDialogModule,
+    FontAwesomeModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [
     { provide: NZ_I18N, useValue: en_US },
     MessageService,
-    PrimeNGConfig
+    PrimeNGConfig,
+    ConfirmationService
   ],
   bootstrap: [AppComponent]
 })

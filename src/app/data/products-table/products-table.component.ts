@@ -10,13 +10,16 @@ import {MatTableDataSource} from '@angular/material/table';
 //Services
 import { LoadingService } from 'src/app/services/loading.service';
 
+//FontAwesome
+import { faFileCircleMinus } from '@fortawesome/free-solid-svg-icons';
+
 @Component({
   selector: 'app-products-table',
   templateUrl: './products-table.component.html',
   styleUrls: ['./products-table.component.scss']
 })
 export class ProductsTableComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'price', 'avalability', 'order', 'group', 'brand', 'rim', 'season', 'update date', "thessaloniki's stock", "athens' stock", 'quantity', 'add to cart'];
+  displayedColumns: string[] = ['name', 'price', 'avalability', 'order', 'group', 'brand', 'rim', 'season', "thessaloniki's stock", "athens' stock", 'quantity', 'add to cart'];
   dataSource!: MatTableDataSource<any>;
   products!: any[];
   available: any = [];
@@ -24,6 +27,9 @@ export class ProductsTableComponent implements OnInit {
   searchProd: any;
   quantity: any;
   error: boolean = false; 
+
+
+  faFileCircleMinus = faFileCircleMinus
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
@@ -47,11 +53,10 @@ export class ProductsTableComponent implements OnInit {
           resData.name,
           2
         );
+
         this.loadingService.sendStartLoading(false);
         // Assign the data to the data source for the table to render
-        this.dataSource = new MatTableDataSource(this.products);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        this.updateTable();
       } 
       else {
         // console.log('hello 2');
@@ -61,6 +66,7 @@ export class ProductsTableComponent implements OnInit {
             resData.name,
             1
         ));
+
         this.loadingService.sendStartLoading(false);
         // Assign the data to the data source for the table to render
         this.dataSource = new MatTableDataSource([this.available[0].product]);
@@ -101,9 +107,7 @@ export class ProductsTableComponent implements OnInit {
       if(cai == this.products[i].cai){
         this.loadingService.sendStartLoading(false);
         this.products[i] = temp.product;
-        this.dataSource = new MatTableDataSource(this.products);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
+        this.updateTable();
         break;
       }
     }
@@ -111,7 +115,12 @@ export class ProductsTableComponent implements OnInit {
 
   handleNewQty(e: any,qty_id: any){
     let qty_input: any = document.getElementById(qty_id);
-    qty_input.children[0].children[0].children[0].children[1].children[0].value = +e.target.value;
+    if(+e.target.value > this.quantity){
+      qty_input.children[0].children[0].children[0].children[1].children[0].value = this.quantity;  
+    }
+    else{
+      qty_input.children[0].children[0].children[0].children[1].children[0].value = +e.target.value;
+    }
   }
 
   addToCart(product:any,qty_id: any){
@@ -134,6 +143,12 @@ export class ProductsTableComponent implements OnInit {
     }
 
 
+  }
+
+  updateTable(){
+    this.dataSource = new MatTableDataSource(this.products);
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
 

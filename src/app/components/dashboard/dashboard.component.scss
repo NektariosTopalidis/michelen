@@ -5,4 +5,15 @@
 
 .content{
     @include component-size;
+
+    .dashboard-title{
+        @include center-element;
+        @include col;
+        
+        margin-bottom: 72px;
+
+        .dashboard-title-text{
+            margin: 0;
+        }
+    }
 }

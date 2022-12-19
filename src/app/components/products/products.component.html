@@ -8,13 +8,13 @@
         <div class="products-form-input">
             <mat-form-field class="products-form-field">
                 <mat-label>Cai</mat-label>
-                <input matInput type="text" value="" formControlName="code" name="cai" id="cai" autocomplete="off">
+                <input matInput type="text" (keyup)="handleFillCai($event)" value="" formControlName="code" name="cai" id="cai" autocomplete="off">
                 <mat-icon matSuffix>vpn_key</mat-icon>
               </mat-form-field>
     
               <mat-form-field class="products-form-field">
                 <mat-label>Product Name</mat-label>
-                <input matInput type="text" value="" formControlName="name" name="name" id="name" autocomplete="off">
+                <input matInput type="text" (keyup)="handleFillName($event)" value="" formControlName="name" name="name" id="name" autocomplete="off">
                 <mat-icon matSuffix>local_grocery_store</mat-icon>
               </mat-form-field>
     

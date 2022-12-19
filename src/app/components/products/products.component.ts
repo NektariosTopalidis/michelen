@@ -24,6 +24,24 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  handleFillCai(e: any){
+    if(e.target.value){
+      this.serchProd.controls['name'].disable();
+    }
+    else{
+      this.serchProd.controls['name'].enable();
+    }
+  }
+
+  handleFillName(e: any){
+    if(e.target.value){
+      this.serchProd.controls['code'].disable();
+    }
+    else{
+      this.serchProd.controls['code'].enable();
+    }
+  }
+
   findProducts(){
     // console.log(this.serchProd.value);
     this.loadingService.sendStartLoading(true);

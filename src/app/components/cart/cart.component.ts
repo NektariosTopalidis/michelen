@@ -20,7 +20,5 @@ export class CartComponent implements OnInit{
 
   }
 
-  addSingle() {
-    this.messageService.add({severity:'success', summary:'Service Message', detail:'Via MessageService'});
-  }
+
 }
