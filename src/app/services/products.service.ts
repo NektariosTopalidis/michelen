@@ -73,7 +73,7 @@ export class ProductsService {
     //http://localhost:3001/products/addToCart
     axios.post('https://michelinNodeRest.vinoitalia.gr/products/addToCart',{
       qty:qty,
-      trdr:"5785",
+      trdr:this.loadedUser.id,
       product : product
     })
     .then(resData=>{
