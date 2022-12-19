@@ -16,6 +16,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginCompletedComponent } from './snacks/login-completed/login-completed.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductsTableComponent } from './data/products-table/products-table.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { CartTableComponent } from './data/cart-table/cart-table.component';
 
 //Material
 import {MatInputModule} from '@angular/material/input';
@@ -40,8 +42,8 @@ import {ConfirmationService} from 'primeng/api';
 //ng-zorro
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
-import { SpinnerComponent } from './shared/spinner/spinner.component';
-import { CartTableComponent } from './data/cart-table/cart-table.component';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+
 
 //FontAwsome
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
